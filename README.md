@@ -35,7 +35,7 @@ Você pode obter este repositório de três formas:
 ### Clonar via HTTPS
 
 ```bash
-git clone https://github.com/mvapedrosa/Eng-de-Software-UFRN.git
+git clone https://github.com/Mateus-VF-Araujo/S.A.F.E.R.git
 ```
 
 Isso criará uma cópia local do repositório em sua máquina.
@@ -45,7 +45,7 @@ Isso criará uma cópia local do repositório em sua máquina.
 Se você já configurou sua chave SSH no GitHub, pode clonar usando:
 
 ```bash
-git clone git@github.com:mvapedrosa/Eng-de-Software-UFRN.git
+git clone git@github.com:Mateus-VF-Araujo/S.A.F.E.R.git
 ```
 
 Isso criará uma cópia local do repositório em sua máquina.
@@ -53,7 +53,7 @@ Isso criará uma cópia local do repositório em sua máquina.
 ### Baixar como ZIP
 
 1. Acesse a página do repositório no GitHub:
-   [https://github.com/mvapedrosa/Eng-de-Software-UFRN](https://github.com/mvapedrosa/Eng-de-Software-UFRN)
+   [https://github.com/Mateus-VF-Araujo/S.A.F.E.R](https://github.com/Mateus-VF-Araujo/S.A.F.E.R)
 2. Clique no botão **Code** (verde).
 3. Selecione **Download ZIP**.
 4. Extraia o arquivo ZIP para o local desejado em seu computador.
