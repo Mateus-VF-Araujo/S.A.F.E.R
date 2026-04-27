@@ -1,1 +1,55 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
 
+# Distribution and packaging
+build/
+dist/
+site/
+.eggs/
+*.egg
+*.egg-info/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Tool caches and test artifacts
+.coverage
+.coverage.*
+.hypothesis/
+.mypy_cache/
+.nox/
+.pyre/
+.pytest_cache/
+.ruff_cache/
+.tox/
+htmlcov/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local environment configuration
+.env
+.env.*
+.python-version
+
+# Editors and IDEs
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini

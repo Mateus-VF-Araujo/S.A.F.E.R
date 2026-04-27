@@ -1,6 +1,10 @@
-# Eng-de-Software-UFRN
+<p align="center">
+  <img src="assets/safer-banner.svg" alt="Banner do software S.A.F.E.R." width="100%">
+</p>
 
-Repositório de exemplo para as atividades da disciplina de Engenharia de Software da UFRN.
+# S.A.F.E.R.
+
+Repositório do projeto **Sistema de Análise Facial para Entidades de Risco**, desenvolvido para reconhecimento facial com foco na identificação de criminosos.
 
 ## Índice
 
@@ -12,15 +16,17 @@ Repositório de exemplo para as atividades da disciplina de Engenharia de Softwa
 ## Sobre o Projeto
 
 ### Título
-Título do Projeto
+S.A.F.E.R. - Sistema de Análise Facial para Entidades de Risco
 
 ### Descrição
-Descrição do seu projeto.
+Sistema de reconhecimento facial para identificação de criminosos.
 
 ### Componentes
-- Aluno(a) 1
-- Aluno(a) 2
-- Aluno(a) 3
+- Kennymar Bezerra de Oliveira
+- Paulo Ricardo Ferreira de Oliveira
+- Guilherme Souza de Farias
+- Soraia Pereira de Araújo
+- Mateus Vinicius Figueredo de Araújo
 
 ## Como clonar ou baixar
 
@@ -57,20 +63,23 @@ Isso criará uma cópia local do repositório em sua máquina.
 
 > *Esta seção pode variar conforme a organização do repositório de cada grupo.*
 
-```
-Eng-de-Software-UFRN/
+```text
+S.A.F.E.R/
+├── assets/
+│   └── safer-banner.svg
 ├── LICENSE
 ├── README.md
-├── <diretório-x>/
-├── <diretório-y>/
-└── <diretório-z>/
+├── main.py
+├── pyproject.toml
+└── uv.lock
 ```
 
+- assets: recursos visuais utilizados na documentação do projeto.
 - LICENSE: termos da licença do projeto (MIT).
 - README.md: este arquivo de apresentação.
-- X: descrição do diretório X.
-- Y: descrição do diretório Y.
-- Z: descrição do diretório Z.
+- main.py: ponto de entrada atual da aplicação.
+- pyproject.toml: metadados e dependências do projeto Python.
+- uv.lock: arquivo de travamento das dependências gerenciado pelo `uv`.
 
 ## Licença
 
