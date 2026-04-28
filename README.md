@@ -61,8 +61,6 @@ Isso criará uma cópia local do repositório em sua máquina.
 
 ## Estrutura do Projeto
 
-> *Esta seção pode variar conforme a organização do repositório de cada grupo.*
-
 ```text
 S.A.F.E.R/
 ├── assets/
