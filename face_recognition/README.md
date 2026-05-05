@@ -4,6 +4,9 @@ Este módulo é responsável por processar uma stream de vídeo recebida via Web
 
 ## Bibliotecas Utilizadas
 
+*   **IMPORTANTE:** o arquivo `dlib-19.22.99-cp310-cp310-win_amd64.whl` deve ser instalado manualmente antes de tudo, caso algum de vocês esteja usando Windows -> Execute `uv pip install face_recognition\utils\dlib-19.22.99-cp310-cp310-win_amd64.whl` na pasta raiz do projeto antes de sincronizar os pacotes com `uv pip install...`
+
+
 *   **`fastapi`**, **`uvicorn`**, **`websockets`**: Servidor web e stream de vídeo bidirecional.
 *   **`sqlalchemy`**: Usado para manipulação do banco de dados SQLite.
 *   **`opencv-python`**: Visão computacional e decodificação Base64.
