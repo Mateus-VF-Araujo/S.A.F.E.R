@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/safer-banner.svg" alt="Banner do software S.A.F.E.R." width="100%">
+  <img src="assets/safer-banner_of.svg" alt="Banner do software S.A.F.E.R." width="100%">
 </p>
 
 # S.A.F.E.R.
@@ -60,8 +60,6 @@ Isso criará uma cópia local do repositório em sua máquina.
 
 
 ## Estrutura do Projeto
-
-> *Esta seção pode variar conforme a organização do repositório de cada grupo.*
 
 ```text
 S.A.F.E.R/
