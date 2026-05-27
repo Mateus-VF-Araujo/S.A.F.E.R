@@ -24,7 +24,6 @@ Sistema de reconhecimento facial para identificação de criminosos.
 
 ### Componentes
 - Kennymar Bezerra de Oliveira
-- Paulo Ricardo Ferreira de Oliveira
 - Guilherme Souza de Farias
 - Soraia Pereira de Araújo
 - Mateus Vinicius Figueredo de Araújo
