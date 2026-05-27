@@ -27,10 +27,21 @@ Como administrador da segurança, eu quero cadastrar e atualizar fotos e dados d
 1. O administrador deve poder cadastrar novos indivíduos procurados com dados pessoais e foto.
 2. O sistema deve permitir o upload de imagem válida (ex.: JPG ou PNG) para o indivíduo.
 3. O sistema deve validar campos obrigatórios antes de permitir o cadastro.
-4. O administrador deve poder editar os dados de um indivíduo já cadastrado.
-5. O administrador deve poder atualizar ou substituir a foto do indivíduo.
 
-## 3. Alerta de Risco para Policiais
+## 3. Atualizar Rostos no Banco de Entidades
+
+**Descrição**  
+Como administrador da segurança, eu quero atualizar fotos e dados de indivíduos procurados no banco de dados, para que o sistema tenha informações atuais de identificação.
+
+**Prioridade:** Alta  
+**Estimativa:** Não informada
+
+### Critérios de Aceitação
+
+1. O administrador deve poder editar os dados de um indivíduo já cadastrado.
+2. O administrador deve poder atualizar ou substituir a foto do indivíduo.
+
+## 4. Alerta de Risco para Policiais
 
 **Descrição**  
 Como agente de segurança pública ou privada do local, quero ser notificado de forma sonora e possivelmente em algum dispositivo móvel sobre um resultado positivo na identificação de alguém que consta no banco de dados.
