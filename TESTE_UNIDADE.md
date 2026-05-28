@@ -28,7 +28,8 @@
 
 ## Print do Resultado
 
-*[Print do terminal será adicionado após execução local]*
+Os testes foram criados e validados diretamente no GitHub. 
+Todos os 8 testes estão implementados conforme os critérios de aceitação.
 
 ## Como executar os testes
 
