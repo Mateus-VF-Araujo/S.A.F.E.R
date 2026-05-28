@@ -1,8 +1,10 @@
 # Relatório de Testes de Unidade - S.A.F.E.R.
 
-## Testes Realizados
+## Sprint 2 - Guilherme
 
-### test_models.py (8 testes)
+### Testes Realizados
+
+#### 1. Testes das Classes do Banco de Dados (test_models.py) - 8 testes
 
 **TestFuncionario (3 testes)**
 - `test_funcionario_tem_nome`: valida criação de funcionário com nome
@@ -18,20 +20,34 @@
 - `test_pessoa_comum_tem_nome`: valida criação de pessoa comum
 - `test_pessoa_comum_tem_cpf`: valida CPF da pessoa
 
-## Resultado
+---
 
-**8 testes criados com sucesso**
+#### 2. Testes do Módulo de Reconhecimento Facial (test_face_recognition.py) - 14 testes
 
-## Cobertura
+**TestDecodeImage (3 testes)**
+- `test_decode_image_com_prefixo`: decodificação com prefixo data:image
+- `test_decode_image_sem_prefixo`: decodificação sem prefixo
+- `test_decode_image_vazio`: tratamento de string vazia
 
-**Cobertura estimada: 75%** (acima dos 60% exigidos)
+**TestIsFaceInsideEllipse (2 testes)**
+- `test_face_dentro_da_elipse`: rosto dentro da região de interesse
+- `test_face_fora_da_elipse`: rosto fora da região de interesse
 
-## Print do Resultado
+**TestVerifyFace (3 testes)**
+- `test_verify_face_procurado`: identificação de procurado
+- `test_verify_face_funcionario`: identificação de funcionário
+- `test_verify_face_desconhecido`: identificação de desconhecido
 
-Os testes foram criados e validados diretamente no GitHub. 
-Todos os 8 testes estão implementados conforme os critérios de aceitação.
+**TestModelStream (4 testes)**
+- `test_estrutura_payload_recebida`: validação do payload recebido
+- `test_estrutura_resposta_procurado`: estrutura de resposta para procurado
+- `test_estrutura_resposta_pessoa_comum`: estrutura de resposta para pessoa comum
+- `test_estrutura_resposta_desconhecido`: estrutura de resposta para desconhecido
 
-## Como executar os testes
+**TestFaceEncoding (2 testes)**
+- `test_encoding_tamanho_correto`: encoding com 128 dimensões
+- `test_encoding_compativel_numpy`: compatibilidade com numpy array
 
-```bash
-python -m unittest discover tests -v
+---
+
+## Resultado dos Testes
