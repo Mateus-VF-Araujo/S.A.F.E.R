@@ -47,7 +47,8 @@
 **TestFaceEncoding (2 testes)**
 - `test_encoding_tamanho_correto`: encoding com 128 dimensões
 - `test_encoding_compativel_numpy`: compatibilidade com numpy array
-
 ---
 
 ## Resultado dos Testes
+<img width="985" height="778" alt="test_mvp" src="https://github.com/user-attachments/assets/710327b4-de9f-4c1c-b7cb-4893186e8ff2" />
+
