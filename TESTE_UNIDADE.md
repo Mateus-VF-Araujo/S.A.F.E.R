@@ -52,3 +52,25 @@
 ## Resultado dos Testes
 <img width="985" height="778" alt="test_mvp" src="https://github.com/user-attachments/assets/710327b4-de9f-4c1c-b7cb-4893186e8ff2" />
 
+## Cobertura dos Testes
+
+**Cobertura obtida: 98%** (acima dos 60% exigidos)
+
+### Detalhamento:
+
+| Arquivo | Stmts | Miss | Cobertura |
+|---------|-------|------|-----------|
+| test_face_recognition.py | 64 | 1 | 98% |
+| test_models.py | 32 | 1 | 97% |
+| **TOTAL** | **96** | **2** | **98%** |
+
+### Print do resultado:
+
+<img width="1154" height="368" alt="test_mvp2" src="https://github.com/user-attachments/assets/c0fa67cd-695f-4c90-a870-8826f7b79bc1" />
+
+
+### Comando executado:
+
+```bash
+pytest tests/ --cov=. --cov-report=term
+
