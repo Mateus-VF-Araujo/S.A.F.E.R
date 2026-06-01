@@ -4,7 +4,7 @@ from sqlalchemy.types import Integer, Float, Date, String
 import os
 
 # Substitua usuario, senha, host, porta e nome do banco pelos dados locais
-DATABASE_URL = "mysql+pymysql://usuario:senha@localhost/safer_db"
+DATABASE_URL = "mysql+pymysql://root:root@localhost/safer_db"
 
 engine = create_engine(DATABASE_URL, echo=False)
 
