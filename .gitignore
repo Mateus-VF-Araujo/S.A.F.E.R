@@ -53,3 +53,6 @@ htmlcov/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# dependencies
+node_modules/
