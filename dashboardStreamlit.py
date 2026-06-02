@@ -13,7 +13,7 @@ st.set_page_config(page_title="S.A.F.E.R. - Dashboard", layout="wide")
 
 DATABASE_URL = os.getenv(
     "SAFER_DATABASE_URL",
-    "mysql+pymysql://root:root@localhost:3306/safer_db",
+    "mysql+pymysql://usuario:senha@localhost:3306/safer_db",
 )
 
 FOTO_EXEMPLO_BASE64 = (
