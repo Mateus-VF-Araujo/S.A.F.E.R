@@ -1,4 +1,6 @@
+import base64
 import os
+from pathlib import Path
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -13,13 +15,23 @@ st.set_page_config(page_title="S.A.F.E.R. - Dashboard", layout="wide")
 
 DATABASE_URL = os.getenv(
     "SAFER_DATABASE_URL",
-    "mysql+pymysql://usuario:senha@localhost:3306/safer_db",
+    "mysql+pymysql://root:root@localhost:3306/safer_db",
 )
 
 FOTO_EXEMPLO_BASE64 = (
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwAD"
     "hgGAWjR9awAAAABJRU5ErkJggg=="
 )
+
+def codificar_imagem_para_base64(arquivo_ou_caminho) -> str:
+
+    if hasattr(arquivo_ou_caminho, "read"):
+        # Se for um arquivo vindo do st.file_uploader
+        bytes_imagem = arquivo_ou_caminho.read()
+    else:
+        # Se for um caminho de arquivo local do disco
+        bytes_imagem = Path(arquivo_ou_caminho).read_bytes()
+    return base64.b64encode(bytes_imagem).decode("utf-8")
 
 
 @st.cache_resource
@@ -36,7 +48,7 @@ def executar_sql(query, params=None):
         return conn.execute(text(query), params or {})
 
 def registrar_mensagem_crud(mensagem):
-    st.session_state["crud_mensagem"] = mensagem
+    st.session_state["crud_mensagem"] = message = mensagem
 
 def exibir_mensagem_crud():
     mensagem = st.session_state.pop("crud_mensagem", None)
@@ -581,11 +593,13 @@ def exibir_crud_pessoas(modelo_nome):
             if funcionarios:
                 selecionado = st.selectbox("Cadastrado por", list(funcionarios.keys()))
                 dados["cadastrado_por"] = funcionarios[selecionado]
-            foto = st.text_area("Foto em Base64 (opcional)", placeholder="Deixe vazio para usar uma imagem minima valida")
-            if foto.strip():
-                dados["foto_base64"] = foto.strip()
+            
+            foto_arquivo = st.file_uploader("Foto da Pessoa (PNG, JPG, JPEG)", type=["png", "jpg", "jpeg"])
 
             if st.form_submit_button(f"Inserir {modelo_nome.lower()}"):
+                if foto_arquivo is not None:
+                    dados["foto_base64"] = codificar_imagem_para_base64(foto_arquivo)
+
                 msg = criar_registro(modelo, dados)
                 registrar_mensagem_crud(msg)
                 st.rerun()
@@ -610,7 +624,13 @@ def exibir_crud_pessoas(modelo_nome):
                 if funcionarios:
                     selecionado = st.selectbox("Cadastrado por", list(funcionarios.keys()))
                     dados["cadastrado_por"] = funcionarios[selecionado]
+                
+                foto_arquivo_edicao = st.file_uploader("Atualizar Foto", type=["png", "jpg", "jpeg"], key=f"edit_foto_{modelo_nome}")
+
                 if st.form_submit_button("Salvar alteracoes"):
+                    if foto_arquivo_edicao is not None:
+                        dados["foto_base64"] = codificar_imagem_para_base64(foto_arquivo_edicao)
+                        
                     msg = atualizar_registro(modelo, int(registro_id), dados)
                     registrar_mensagem_crud(msg)
                     st.rerun()
