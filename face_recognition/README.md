@@ -34,10 +34,9 @@ O módulo opera escutando conexões ativas de WebSocket no endpoint `/ws/recogni
   "results": [
     {
       "status": "wanted_alert",
-      "cpf": "12345678900",
-      "full_name": "Joãozin da Silva",
-      "crime": "Roubo qualificado",
-      "risk_level": "ALTO"
+      "cpf": "222.222.222-22",
+      "full_name": "Joãozinho da Silva",
+      "risk_level": "4"
     }
   ]
 }
@@ -49,8 +48,8 @@ O módulo opera escutando conexões ativas de WebSocket no endpoint `/ws/recogni
   "results": [
     {
       "status": "common_cleared",
-      "cpf": "45678912300",
-      "full_name": "Mariazinha Souza"
+      "cpf": "666.666.666-66",
+      "full_name": "Carlos Pereira"
     }
   ]
 }
@@ -62,8 +61,8 @@ O módulo opera escutando conexões ativas de WebSocket no endpoint `/ws/recogni
   "results": [
     {
       "status": "employee_authorized",
-      "cpf": "98765432100",
-      "full_name": "Carlos Administrador"
+      "cpf": "111.111.111-11",
+      "full_name": "Maria Silva"
     }
   ]
 }
