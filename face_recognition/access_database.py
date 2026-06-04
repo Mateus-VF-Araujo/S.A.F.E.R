@@ -1,17 +1,21 @@
 import numpy as np
+import sys
+from pathlib import Path
+import numpy as np
 import face_recognition
-from database import SessionLocal
-from models import Procurado, PessoaComum, Funcionario
-from functions import decodificar_imagem_base64
+
+root_dir = Path(__file__).resolve().parent.parent
+if str(root_dir) not in sys.path:
+    sys.path.append(str(root_dir))
+
+from database.database import SessionLocal
+from database.models import Procurado, PessoaComum, Funcionario
+from database.functions import decodificar_imagem_base64
 
 known_encodings = []
 known_metadata = []
 
 def load_encodings_to_memory():
-    """
-    Carrega as fotos do banco MySQL, calcula os encodings e armazena na memória RAM
-    para não atrasar o processamento do vídeo em tempo real.
-    """
     global known_encodings, known_metadata
     known_encodings.clear()
     known_metadata.clear()
@@ -57,9 +61,6 @@ def load_encodings_to_memory():
 load_encodings_to_memory()
 
 def verify_face(face_encoding_list):
-    """
-    Compara o encoding recebido do stream com os encodings armazenados em cache.
-    """
     if not known_encodings:
         return {"status": "unknown"}
         

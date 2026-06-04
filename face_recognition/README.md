@@ -12,6 +12,7 @@ Este módulo é responsável por processar uma stream de vídeo recebida via Web
 *   **`opencv-python`**: Visão computacional e decodificação Base64.
 *   **`face_recognition`**: Detecção de rosto e extração de características.
 *   **`numpy<2`**: Manipulação de arrays (versão estritamente < 2.0 para compatibilidade com o dlib).
+*   **`pydantic`**: Criação e manipulação de modelos de entidades base.
 
 ## Comunicação com o React (Stream de Vídeo)
 
