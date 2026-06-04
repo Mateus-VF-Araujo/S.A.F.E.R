@@ -17,12 +17,18 @@ export default function Estatisticas() {
     carregarPessoas()
   }, [])
 
-  const carregarPessoas = () => {
+  const carregarPessoas = async () => {
     try {
-      setPessoas(
-        JSON.parse(localStorage.getItem('safer-pessoas')) || []
-      )
-    } catch {
+      const resposta = await fetch('http://localhost:8000/api/estatisticas')
+      if (resposta.ok) {
+        const dadosReais = await resposta.json()
+        setPessoas(dadosReais)
+      } else {
+        console.error("Erro ao buscar estatísticas do servidor")
+        setPessoas([])
+      }
+    } catch (erro) {
+      console.error("Servidor indisponível:", erro)
       setPessoas([])
     }
   }

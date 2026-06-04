@@ -18,13 +18,38 @@ export default function Cadastro() {
     r.readAsDataURL(f)
   }
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    const nova = { id: crypto.randomUUID(), nome, cpf, status, isFuncionario: isFunc, foto: preview }
-    let list = []
-    try { list = JSON.parse(localStorage.getItem('safer-pessoas')) || [] } catch {}
-    localStorage.setItem('safer-pessoas', JSON.stringify([nova, ...list]))
-    navigate('/')
+    
+    const payload = {
+      nome: nome,
+      cpf: cpf,
+      status: status,
+      isFuncionario: isFunc,
+      foto: preview
+    }
+
+    try {
+      const resposta = await fetch('http://localhost:8000/api/cadastrar_pessoa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+
+      const data = await resposta.json()
+
+      if (resposta.ok && data.ok) {
+        alert("Sucesso: " + data.message)
+        navigate('/')
+      } else {
+        alert("Erro ao cadastrar: " + (data.error || "Erro desconhecido"))
+      }
+    } catch (erro) {
+      console.error("Erro na requisição:", erro)
+      alert("Falha na comunicação com o servidor de IA.")
+    }
   }
 
   return (
