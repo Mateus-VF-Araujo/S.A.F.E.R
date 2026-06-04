@@ -18,6 +18,7 @@ class Funcionario(Base):
     ativo = Column(Boolean, default=True)
 
     cadastros_realizados = relationship("Procurado", back_populates="cadastrado_por_func")
+    cadastros_pessoas_comuns = relationship("PessoaComum", back_populates="cadastrado_por_func")
 
 class Procurado(Base):
     __tablename__ = 'procurados'
@@ -40,3 +41,6 @@ class PessoaComum(Base):
     cpf = Column(String(14), unique=True)
     foto_base64 = Column(LONGTEXT, nullable=False)
     data_cadastro = Column(DateTime, default=datetime.utcnow)
+    cadastrado_por = Column(Integer, ForeignKey('funcionarios.id'))
+
+    cadastrado_por_func = relationship("Funcionario", back_populates="cadastros_pessoas_comuns")
