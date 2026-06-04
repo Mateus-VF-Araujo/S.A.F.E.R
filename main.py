@@ -55,7 +55,6 @@ def main():
     print("Sistema online.\n\nPressione [Ctrl+C] no terminal para desligar os servidores.")
     print("="*50 + "\n")
 
-    # Mantém o script rodando para segurar os processos
     try:
         backend_process.wait()
         frontend_process.wait()
