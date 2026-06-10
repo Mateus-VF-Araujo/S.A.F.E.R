@@ -1,14 +1,14 @@
 from pathlib import Path
 
-from sqlalchemy.exc import IntegrityError
-from database import SessionLocal, init_db
 from functions import (
     codificar_imagem_para_base64,
     validar_campos_modelo,
     validar_foto_base64,
 )
 from models import Funcionario, PessoaComum, Procurado
+from sqlalchemy.exc import IntegrityError
 
+from database import SessionLocal, init_db
 
 PASTA_FOTOS_PROCURADOS = Path(__file__).resolve().parent / "fotosProcurados"
 CADASTRADOR_PROCURADOS_EMAIL = "mariasilva@safer.local"
@@ -41,9 +41,9 @@ FUNCIONARIOS = [
     },
     {
         "nome": "Maria Silva",
-        "cargo": "Analista de Segurança",
+        "cargo": "Administrador do Banco de Dados",
         "cpf": "111.111.111-11",
-        "nivel_acesso": 2,
+        "nivel_acesso": 5,
         "email": "mariasilva@safer.local",
         "senha_hash": "mariasilva123",
         "ativo": True,
@@ -66,12 +66,6 @@ PROCURADOS = [
         "foto_base64": carregar_foto_base64("guilherme.jpeg"),
     },
     {
-        "nome": "Soraia Pereira de Araújo",
-        "cpf": "444.444.444-44",
-        "nivel_periculosidade": 2,
-        "foto_base64": carregar_foto_base64("soraia.jpeg"),
-    },
-    {
         "nome": "Mateus Vinicius Figueredo de Araújo",
         "cpf": "555.555.555-55",
         "nivel_periculosidade": 1,
@@ -86,7 +80,12 @@ PESSOAS_COMUNS = [
         "nome": "Carlos Pereira",
         "cpf": "666.666.666-66",
         "foto_base64": FOTO_EXEMPLO_BASE64,
-    }
+    },
+    {
+        "nome": "Soraia Pereira de Araújo",
+        "cpf": "444.444.444-44",
+        "foto_base64": carregar_foto_base64("soraia.jpeg"),
+    },
 ]
 
 
@@ -113,7 +112,9 @@ def popular_funcionarios(session):
         funcionario, criado = get_or_create(
             session,
             Funcionario,
-            defaults={chave: valor for chave, valor in dados.items() if chave != "email"},
+            defaults={
+                chave: valor for chave, valor in dados.items() if chave != "email"
+            },
             email=email,
         )
         funcionarios_por_email[email] = funcionario
@@ -175,7 +176,9 @@ def popular_banco():
     try:
         funcionarios_por_email = popular_funcionarios(session)
         cadastrador_procurados = funcionarios_por_email[CADASTRADOR_PROCURADOS_EMAIL]
-        cadastrador_pessoas_comuns = funcionarios_por_email[CADASTRADOR_PESSOAS_COMUNS_EMAIL]
+        cadastrador_pessoas_comuns = funcionarios_por_email[
+            CADASTRADOR_PESSOAS_COMUNS_EMAIL
+        ]
         popular_procurados(session, cadastrador_procurados.id)
         popular_pessoas_comuns(session, cadastrador_pessoas_comuns.id)
         session.commit()

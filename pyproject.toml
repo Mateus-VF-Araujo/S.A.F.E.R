@@ -1,7 +1,7 @@
 [project]
 name = "s-a-f-e-r"
 version = "0.1.0"
-description = "Add your description here"
+description = "Sistema de Análise Facial para Entidades de Risco"
 readme = "README.md"
 requires-python = ">=3.10.20"
 dependencies = [
