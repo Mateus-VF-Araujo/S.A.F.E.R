@@ -13,14 +13,13 @@ from database.models import Funcionario, PessoaComum, Procurado
 
 st.set_page_config(page_title="S.A.F.E.R. - Dashboard", layout="wide")
 
-# --- INICIALIZAÇÃO DA SESSÃO PARA O LOGIN ---
 if "logado" not in st.session_state:
     st.session_state["logado"] = False
     st.session_state["usuario_dados"] = None
 
 DATABASE_URL = os.getenv(
     "SAFER_DATABASE_URL",
-    "mysql+pymysql://root:root@localhost:3306/safer_db",
+    "mysql+pymysql://usuario:senha@localhost:3306/safer_db",
 )
 
 FOTO_EXEMPLO_BASE64 = (
@@ -28,7 +27,7 @@ FOTO_EXEMPLO_BASE64 = (
     "hgGAWjR9awAAAABJRU5ErkJggg=="
 )
 
-# --- CARREGAMENTO DO BANNER SVG ---
+
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 caminho_imagem = os.path.join(diretorio_atual, "assets", "safer-banner.svg")
 
@@ -625,11 +624,9 @@ def exibir_crud_pessoas(modelo_nome, nivel_usuario, cargo_usuario, id_usuario_lo
     exibir_mensagem_crud()
     st.dataframe(df, use_container_width=True, hide_index=True)
 
-    # Regras RBAC para Pessoas
     cargo_formatado = str(cargo_usuario).lower()
     pode_editar_remover = (nivel_usuario >= 5) or (cargo_formatado == "administrador")
 
-    # Adicionada permissão exclusiva de "Inserir" para quem tem cargo "Cadastrador"
     pode_inserir = (
         (nivel_usuario >= 4)
         or pode_editar_remover
@@ -658,7 +655,6 @@ def exibir_crud_pessoas(modelo_nome, nivel_usuario, cargo_usuario, id_usuario_lo
                 nome = st.text_input("Nome")
                 cpf = st.text_input("CPF")
 
-                # Atribuição automática do ID logado no campo cadastrado_por
                 dados = {
                     "nome": nome,
                     "cpf": cpf,
@@ -698,7 +694,6 @@ def exibir_crud_pessoas(modelo_nome, nivel_usuario, cargo_usuario, id_usuario_lo
                     nome = st.text_input("Nome", value=atual["nome"])
                     cpf = st.text_input("CPF", value=atual["cpf"])
 
-                    # Atualiza o cadastrado_por automaticamente para quem está editando
                     dados = {
                         "nome": nome,
                         "cpf": cpf,
@@ -747,7 +742,7 @@ def exibir_crud_pessoas(modelo_nome, nivel_usuario, cargo_usuario, id_usuario_lo
 
 
 def tela_login():
-    st.markdown("<br><br>", unsafe_allow_html=True)  # Espaçamento
+    st.markdown("<br><br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col2:
@@ -792,14 +787,10 @@ def tela_login():
                         st.error("Credenciais inválidas.")
 
 
-# ==========================================
-# FLUXO PRINCIPAL DO DASHBOARD
-# ==========================================
 if not st.session_state["logado"]:
     tela_login()
 
 else:
-    # Mostra o banner no topo apenas se a imagem tiver sido lida com sucesso
     if svg_texto:
         st.image(svg_texto, use_container_width=True)
 
@@ -807,7 +798,6 @@ else:
     st.caption("Sistema de Análise Facial para Entidades de Risco")
     st.markdown("---")
 
-    # --- BARRA LATERAL LOGADA ---
     st.sidebar.markdown(
         f"👤 **Bem-vindo(a), {st.session_state['usuario_dados']['nome']}**"
     )
