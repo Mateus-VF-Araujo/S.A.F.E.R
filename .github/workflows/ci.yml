@@ -1,30 +1,40 @@
-name: CI - Testes Automatizados
+name: CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    
+  tests:
+    name: Tests and coverage
+    runs-on: windows-latest
+
     steps:
-    - name: Checkout do código
-      uses: actions/checkout@v4
-    
-    - name: Configurar Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-    
-    - name: Instalar dependências
-      run: |
-        pip install pytest pytest-cov
-    
-    - name: Executar testes
-      run: pytest tests/ -v
-    
-    - name: Verificar cobertura mínima (60%)
-      run: pytest tests/ --cov=. --cov-fail-under=60
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10.20"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --dev --locked
+
+      - name: Run tests with coverage
+        run: uv run pytest
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml
