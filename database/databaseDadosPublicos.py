@@ -3,11 +3,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.types import Date, Float, Integer, String
 
 # Substitua usuario, senha, host, porta e nome do banco pelos dados locais
-DATABASE_URL = "mysql+pymysql://root:root@localhost/safer_db"
+DATABASE_URL = "mysql+pymysql://root:root@localhost:3306/safer_db"
 
 engine = create_engine(DATABASE_URL, echo=False)
 
-caminho_do_arquivo = r"C:\Users\Mateus Vinicius\OneDrive\Documentos\S.A.F.E.R\database\BancoVDE2025.csv"
+caminho_do_arquivo = (
+    r"C:\Users\Mateus Vinicius\OneDrive\Documentos\S.A.F.E.R\database\BancoVDE2025.csv"
+)
 
 print("Inicio")
 df = pd.read_csv(caminho_do_arquivo, sep=";", low_memory=False, decimal=",")

@@ -1,6 +1,7 @@
-from models import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
+from database.models import Base
 
 # Substitua usuario, senha, host, porta e nome do banco pelos dados locais
 DATABASE_URL = "mysql+pymysql://root:root@localhost:3306/safer_db"
