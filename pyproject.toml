@@ -3,7 +3,7 @@ name = "s-a-f-e-r"
 version = "0.1.0"
 description = "S.A.F.E.R Facial Recognition Module"
 readme = "README.md"
-requires-python = "==3.10.20"
+requires-python = ">=3.10,<3.11"
 dependencies = [
     "numpy<2",
     "opencv-python",
