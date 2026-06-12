@@ -9,6 +9,7 @@ Repositório do projeto **Sistema de Análise Facial para Entidades de Risco**, 
 ## Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
+- [Fonte dos Dados](#fonte-dos-dados)
 - [Como clonar ou baixar](#como-clonar-ou-baixar)  
 - [Estrutura do Projeto](#estrutura-do-projeto)  
 - [Licença](#licença)  
@@ -23,10 +24,17 @@ Sistema de reconhecimento facial para identificação de criminosos.
 
 ### Componentes
 - Kennymar Bezerra de Oliveira
-- Paulo Ricardo Ferreira de Oliveira
 - Guilherme Souza de Farias
 - Soraia Pereira de Araújo
 - Mateus Vinicius Figueredo de Araújo
+
+## Fonte dos Dados
+
+A base de dados pública utilizada no projeto foi obtida no portal do Ministério da Justiça e Segurança Pública:
+
+[Base de Dados e Notas Metodológicas dos Gestores Estaduais - Sinesp VDE 2015 a 2026](https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/estatistica/dados-nacionais-1/base-de-dados-e-notas-metodologicas-dos-gestores-estaduais-sinesp-vde-2022-e-2023)
+
+O arquivo original foi disponibilizado em formato `.xlsx`. Para uso no projeto, ele foi convertido para `.csv` e salvo em `database/BancoVDE2025.csv`, facilitando a leitura e o tratamento dos dados com `pandas`.
 
 ## Como clonar ou baixar
 
