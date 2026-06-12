@@ -46,7 +46,7 @@ O projeto também possui um módulo de reconhecimento facial que compara uma ima
 
 ## Tecnologias
 
-- Python 3.10.20
+- Python 3.10
 - Streamlit
 - SQLAlchemy
 - MySQL / PyMySQL
@@ -113,7 +113,7 @@ S.A.F.E.R/
 
 Antes de rodar o projeto, tenha instalado:
 
-- Python 3.10.20
+- Python 3.10
 - uv
 - MySQL
 - Git
