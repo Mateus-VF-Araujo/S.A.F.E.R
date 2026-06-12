@@ -20,5 +20,22 @@ dependencies = [
     "plotly-express>=0.4.1",
 ]
 
+[dependency-groups]
+dev = [
+    "pytest>=8.4.0",
+    "pytest-cov>=7.0.0",
+]
+
 [tool.uv.sources]
 dlib = { path = "facial/utils/dlib-19.22.99-cp310-cp310-win_amd64.whl" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "--cov=database.functions",
+    "--cov=database.models",
+    "--cov=facial.access_database",
+    "--cov=facial.model_stream",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+]
