@@ -27,6 +27,7 @@ Sistema de reconhecimento facial para identificação de criminosos.
 - Guilherme Souza de Farias
 - Soraia Pereira de Araújo
 - Mateus Vinicius Figueredo de Araújo
+- Levi Reis do Monte Silva
 
 ## Fonte dos Dados
 

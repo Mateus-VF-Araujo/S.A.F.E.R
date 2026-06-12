@@ -1,0 +1,15 @@
+[theme]
+# A cor principal de acento (para botões, sliders, links)
+primaryColor = "#00d6ff" # Ciano Neon da imagem
+
+# A cor de fundo da área principal
+backgroundColor = "#020c15" # Azul Escuro Profundo da imagem
+
+# A cor de fundo da barra lateral
+secondaryBackgroundColor = "#051e32" # Azul Escuro Ligeiramente Mais Claro
+
+# A cor do texto principal
+textColor = "#FFFFFF" # Branco
+
+# Fonte de base (configuração global)
+font = "sans serif"
