@@ -25,7 +25,7 @@ Como administrador da segurança, eu quero cadastrar e atualizar fotos e dados d
 ### Critérios de Aceitação
 
 1. O administrador deve poder cadastrar novos indivíduos procurados com dados pessoais e foto.
-2. O sistema deve permitir o upload de imagem válida (ex.: JPG ou PNG) para o indivíduo.
+2. O sistema deve permitir o upload de imagem válida (ex.: JPG) para o indivíduo.
 3. O sistema deve validar campos obrigatórios antes de permitir o cadastro.
 
 ## 3. Atualizar Rostos no Banco de Entidades

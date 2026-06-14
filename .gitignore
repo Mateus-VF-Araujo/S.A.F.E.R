@@ -21,6 +21,7 @@ ENV/
 # Tool caches and test artifacts
 .coverage
 .coverage.*
+coverage.xml
 .hypothesis/
 .mypy_cache/
 .nox/
